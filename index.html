@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            .przycisk {
+                font-size: 20px;
+                background: green;
+                border: none;
+                border-radius: 15px;
+                padding: 10px 30px;
+                text-transform: uppercase;
+                color: white;
+                text-shadow: 1px 1px 1px #000;
+                margin-right: 30px;
+                transition: all 0.5s ease-in;
+            }
+
+            .przycisk_active {
+                color: yellow;
+                background-color: rgb(91, 0, 109);
+            }
+        </style>
+    </head>
+    <body>
+        <button class="przycisk" data-name="jeden">Numer 1</button>
+        <button class="przycisk" data-name="dwa">Numer 2</button>
+        <button class="przycisk" data-name="trzy">Numer 3</button>
+        <button class="przycisk" data-name="cztery">Numer 4</button>
+        <button class="przycisk" data-name="pięć">Numer 5</button>
+
+        <script>
+            const firstButton = document.querySelector('button');
+            const firstButtonData = firstButton.dataset.name;
+            console.log(firstButtonData)
+
+            const allButtons = document.querySelectorAll('button');
+
+            function showData() {
+                // console.log(this);
+
+                // const dataValue = this.dataset.name;
+
+                // console.log(`Wartość elementu data ${dataValue}`);
+                // return dataValue;
+                for(let i = 0; i < allButtons.length; i++) {
+                    allButtons[i].classList.remove('przycisk_active');
+                }
+
+                this.classList.add('przycisk_active');
+            }
+
+            for(let i = 0; i < allButtons.length; i++) {
+                allButtons[i].addEventListener('click', showData)
+            }
+        </script>
+    </body>
+</html>
